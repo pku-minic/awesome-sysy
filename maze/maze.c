@@ -1,3 +1,6 @@
+// A maze generator.
+// Author: MaxXing.
+
 // Maze configurations.
 const int WIDTH = 100, HEIGHT = 100, ZOOM = 2;
 
