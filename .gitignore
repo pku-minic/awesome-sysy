@@ -1,0 +1,8 @@
+# macOS
+*.DS_Store
+
+# debugging
+debug
+
+# building
+build
