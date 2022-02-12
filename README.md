@@ -5,6 +5,7 @@ Some awesome SysY source programs.
 ## Program List
 
 * [maze](maze).
+* [mandelbrot](mandelbrot).
 
 ## Copyright and License
 
