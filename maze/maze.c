@@ -2,7 +2,7 @@
 // Author: MaxXing.
 
 // Maze configurations.
-const int WIDTH = 100, HEIGHT = 100, ZOOM = 2;
+const int WIDTH = 100, HEIGHT = 100;
 
 // Properties of a cell.
 const int VISITED = 0;
@@ -112,22 +112,23 @@ void render() {
 
 int main() {
   seed = getint();
+  int zoom = getint();
   starttime();
   gen_maze(rand() % WIDTH, rand() % HEIGHT);
   render();
   stoptime();
   starttime();
   putch(80); putch(51); putch(10);
-  putint((WIDTH * 2 + 1) * ZOOM); putch(32);
-  putint((HEIGHT * 2 + 1) * ZOOM); putch(10);
+  putint((WIDTH * 2 + 1) * zoom); putch(32);
+  putint((HEIGHT * 2 + 1) * zoom); putch(10);
   putint(255); putch(10);
   int y = 0;
-  while (y < (HEIGHT * 2 + 1) * ZOOM) {
+  while (y < (HEIGHT * 2 + 1) * zoom) {
     int x = 0;
-    while (x < (WIDTH * 2 + 1) * ZOOM) {
-      int xx = x / ZOOM, yy = y / ZOOM;
-      int r = image[yy][xx] * 255 * x / ((WIDTH * 2 + 1) * ZOOM);
-      int g = image[yy][xx] * 255 * y / ((HEIGHT * 2 + 1) * ZOOM);
+    while (x < (WIDTH * 2 + 1) * zoom) {
+      int xx = x / zoom, yy = y / zoom;
+      int r = image[yy][xx] * 255 * x / ((WIDTH * 2 + 1) * zoom);
+      int g = image[yy][xx] * 255 * y / ((HEIGHT * 2 + 1) * zoom);
       int b = image[yy][xx] * 255;
       putint(r); putch(32); putint(g); putch(32); putint(b); putch(32);
       x = x + 1;
