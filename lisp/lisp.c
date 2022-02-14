@@ -211,7 +211,7 @@ const int PREDEF_SYMS[PRE_SYM_COUNT][7] = {
     {60},                            // <
     {62, 61},                        // >=
     {60, 61},                        // <=
-    {61},                            // =
+    {61}                             // =
 };
 
 // Checks if the symbol is a predefined symbol.
@@ -269,9 +269,6 @@ void print_sym(int sym_ptr) {
 // ======================================================================
 // Environment
 // ======================================================================
-
-// Pointer to the global environment.
-int global_env_ptr;
 
 // Makes an environment.
 int make_env(int outer_ptr) {
@@ -384,13 +381,13 @@ int is_digit(int c) { return c >= 48 && c <= 57; }
 // Returns the type of the token.
 int next_token() {
   // skip spaces
-  while (is_space(last_char)) last_char = getchar();
+  while (is_space(last_char)) last_char = getch();
   // handle EOF
   if (last_char == -1) return TOKEN_EOF;
   // handle quote and parentheses
   if (last_char >= 39 && last_char <= 41) {
     int c = last_char;
-    last_char = getchar();
+    last_char = getch();
     return TOKEN_QUOTE + c - 39;
   }
   // handle digits
@@ -398,7 +395,7 @@ int next_token() {
     int num = 0;
     while (is_digit(last_char)) {
       num = num * 10 + last_char - 48;
-      last_char = getchar();
+      last_char = getch();
     }
     last_token = num;
     return TOKEN_NUMBER;
@@ -409,7 +406,7 @@ int next_token() {
          !is_space(last_char)) {
     sym_buf[next_sym] = last_char;
     next_sym = next_sym + 1;
-    last_char = getchar();
+    last_char = getch();
   }
   sym_buf[next_sym] = 0;
   next_sym = next_sym + 1;
@@ -787,7 +784,7 @@ int main() {
   // initialize data storage
   init_data();
   // makes the global environment
-  global_env_ptr = make_env(0);
+  int global_env_ptr = make_env(0);
   // read the first token
   last_token_type = next_token();
   // run the REPL
