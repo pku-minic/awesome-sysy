@@ -241,6 +241,7 @@ int is_predef_sym(int sym_ptr) {
 // Checks if two symbols are equal.
 int is_eq_sym(int sym1, int sym2) {
   if (sym1 == sym2) return 1;
+  if (sym1 < 0 || sym2 < 0) return 0;
   int i = 0;
   while (sym_buf[sym1 + i]) {
     if (sym_buf[sym1 + i] != sym_buf[sym2 + i]) return 0;
@@ -337,20 +338,6 @@ int make_func(int param_list_ptr, int body_ptr, int env_ptr) {
   data[body_ptr][DATA_NEXT] = env_ptr;
   return data_ptr;
 }
-
-// // Gets the parameter list of a function.
-// int func_get_param_list(int func_ptr) { return data[func_ptr][DATA_VALUE]; }
-
-// // Gets the body of a function.
-// int func_get_body(int func_ptr) {
-//   return data[func_get_param_list(func_ptr)][DATA_NEXT];
-// }
-
-// // Makes a function environment.
-// int make_func_env(int func_ptr) {
-//   int outer = data[func_get_body(func_ptr)][DATA_NEXT];
-//   return make_env(copy_ptr(outer));
-// }
 
 // ======================================================================
 // Lexical analysis
