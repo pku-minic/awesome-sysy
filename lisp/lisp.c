@@ -45,7 +45,7 @@ const int DATA_REF_COUNT = 3;
 const int DATA_FIELD_COUNT = 4;
 
 // Data.
-const int MAX_DATA_LEN = 1024;
+const int MAX_DATA_LEN = 2048;
 int data[MAX_DATA_LEN][DATA_FIELD_COUNT];
 int free_data_ptr = 0;
 
