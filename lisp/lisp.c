@@ -167,51 +167,53 @@ int next_sym = 0;
 
 // Predefined symbols.
 const int SYM_QUOTE = -1;
-const int SYM_ATOM = -2;
-const int SYM_EQ = -3;  // eq?
-const int SYM_CAR = -4;
-const int SYM_CDR = -5;
-const int SYM_CONS = -6;
-const int SYM_COND = -7;
-const int SYM_LAMBDA = -8;
-const int SYM_DEFINE = -9;
-const int SYM_T = -10;
-const int SYM_F = -11;
-const int SYM_LIST = -12;
-const int SYM_ADD = -13;
-const int SYM_SUB = -14;
-const int SYM_MUL = -15;
-const int SYM_DIV = -16;
-const int SYM_GT = -17;
-const int SYM_LT = -18;
-const int SYM_GE = -19;
-const int SYM_LE = -20;
-const int SYM_EQ_NUM = -21;  // =
+const int SYM_ATOM = -2;    // atom?
+const int SYM_NUMBER = -3;  // number?
+const int SYM_EQ = -4;      // eq?
+const int SYM_CAR = -5;
+const int SYM_CDR = -6;
+const int SYM_CONS = -7;
+const int SYM_COND = -8;
+const int SYM_LAMBDA = -9;
+const int SYM_DEFINE = -10;
+const int SYM_T = -11;
+const int SYM_F = -12;
+const int SYM_LIST = -13;
+const int SYM_ADD = -14;
+const int SYM_SUB = -15;
+const int SYM_MUL = -16;
+const int SYM_DIV = -17;
+const int SYM_GT = -18;
+const int SYM_LT = -19;
+const int SYM_GE = -20;
+const int SYM_LE = -21;
+const int SYM_EQ_NUM = -22;  // =
 const int PRE_SYM_COUNT = -SYM_EQ_NUM;
 
 // Table of predefined symbols.
-const int PREDEF_SYMS[PRE_SYM_COUNT][7] = {
-    {113, 117, 111, 116, 101},       // quote
-    {97, 116, 111, 109, 63},         // atom?
-    {101, 113, 63},                  // eq?
-    {99, 97, 114},                   // car
-    {99, 100, 114},                  // cdr
-    {99, 111, 110, 115},             // cons
-    {99, 111, 110, 100},             // cond
-    {108, 97, 109, 98, 100, 97},     // lambda
-    {100, 101, 102, 105, 110, 101},  // define
-    {116},                           // t
-    {102},                           // f
-    {108, 105, 115, 116},            // list
-    {43},                            // +
-    {45},                            // -
-    {42},                            // *
-    {47},                            // /
-    {62},                            // >
-    {60},                            // <
-    {62, 61},                        // >=
-    {60, 61},                        // <=
-    {61}                             // =
+const int PREDEF_SYMS[PRE_SYM_COUNT][8] = {
+    {113, 117, 111, 116, 101},          // quote
+    {97, 116, 111, 109, 63},            // atom?
+    {110, 117, 109, 98, 101, 114, 63},  // number?
+    {101, 113, 63},                     // eq?
+    {99, 97, 114},                      // car
+    {99, 100, 114},                     // cdr
+    {99, 111, 110, 115},                // cons
+    {99, 111, 110, 100},                // cond
+    {108, 97, 109, 98, 100, 97},        // lambda
+    {100, 101, 102, 105, 110, 101},     // define
+    {116},                              // t
+    {102},                              // f
+    {108, 105, 115, 116},               // list
+    {43},                               // +
+    {45},                               // -
+    {42},                               // *
+    {47},                               // /
+    {62},                               // >
+    {60},                               // <
+    {62, 61},                           // >=
+    {60, 61},                           // <=
+    {61}                                // =
 };
 
 // Checks if the symbol is a predefined symbol.
@@ -578,7 +580,7 @@ int eval(int data_ptr, int env_ptr) {
       if (!arg_ptr || data[arg_ptr][DATA_NEXT]) panic(ERR_INVALID_ARG_NUM);
       return copy_ptr(arg_ptr);
     }
-    // atom
+    // atom?
     if (sym_ptr == SYM_ATOM) {
       if (!arg_ptr || data[arg_ptr][DATA_NEXT]) panic(ERR_INVALID_ARG_NUM);
       int value_ptr = eval(arg_ptr, env_ptr);
@@ -586,7 +588,16 @@ int eval(int data_ptr, int env_ptr) {
       free_data(value_ptr);
       return result_ptr;
     }
-    // eq
+    // number?
+    if (sym_ptr == SYM_NUMBER) {
+      if (!arg_ptr || data[arg_ptr][DATA_NEXT]) panic(ERR_INVALID_ARG_NUM);
+      int value_ptr = eval(arg_ptr, env_ptr);
+      int result_ptr =
+          make_bool(data[value_ptr][DATA_TYPE] == DATA_TYPE_NUMBER);
+      free_data(value_ptr);
+      return result_ptr;
+    }
+    // eq?
     if (sym_ptr == SYM_EQ) {
       int arg2_ptr = data[arg_ptr][DATA_NEXT];
       if (!arg_ptr || !arg2_ptr || data[arg2_ptr][DATA_NEXT]) {
