@@ -1,5 +1,5 @@
 'by-MaxXing
-'Reference:-Roots-of-Lisp.
+'Reference:-Roots-of-Lisp
 
 (define caar (lambda (x) (car (car x))))
 (define cadr (lambda (x) (car (cdr x))))
