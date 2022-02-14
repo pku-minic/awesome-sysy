@@ -689,12 +689,14 @@ int eval(int data_ptr, int env_ptr) {
       int result_ptr = make_list(0), cur_ptr = 0;
       while (arg_ptr) {
         int value_ptr = eval(arg_ptr, env_ptr);
+        int elem_ptr = copy_data(value_ptr);
+        free_data(value_ptr);
         if (cur_ptr) {
-          data[cur_ptr][DATA_NEXT] = value_ptr;
+          data[cur_ptr][DATA_NEXT] = elem_ptr;
         } else {
-          data[result_ptr][DATA_VALUE] = value_ptr;
+          data[result_ptr][DATA_VALUE] = elem_ptr;
         }
-        cur_ptr = value_ptr;
+        cur_ptr = elem_ptr;
         arg_ptr = data[arg_ptr][DATA_NEXT];
       }
       return result_ptr;
