@@ -8,3 +8,4 @@ Programs marked with an asterisk require your SysY compiler to support additiona
 
 * [maze](maze).
 * [mandelbrot](mandelbrot)*.
+* [lisp](lisp).
