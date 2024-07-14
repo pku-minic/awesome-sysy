@@ -7,5 +7,6 @@ Some awesome SysY source programs.
 Programs marked with an asterisk require your SysY compiler to support additional features.
 
 * [maze](maze).
-* [mandelbrot](mandelbrot)*.
+* [mandelbrot](mandelbrot)\*.
 * [lisp](lisp).
+* [2048](2048).
