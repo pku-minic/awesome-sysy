@@ -45,7 +45,7 @@ const int POW2[20] = {1,     2,     4,     8,      16,     32,    64,
                       128,   256,   512,   1024,   2048,   4096,  8192,
                       16384, 32768, 65536, 131072, 262144, 524288};
 const int LEN_OF_POW2[20] = {0, 1, 1, 1, 2, 2, 2, 3, 3, 3,
-                             4, 4, 4, 4, 5, 5, 5, 6, 6, 6};
+                             4, 4, 4, 4, 5, 5, 5, 6, 6, 6}; // x * log10(2)
 
 int STR_INIT[25] = {73, 110, 112, 117, 116, 32, 97,  32,  114,
                     97, 110, 100, 111, 109, 32, 110, 117, 109,
@@ -61,6 +61,9 @@ int STR_SCORE[8] = {115, 99, 111, 114, 101, 58, 32, 0};
 // "step: "
 int STR_STEP[7] = {115, 116, 101, 112, 58, 32, 0};
 int STR_GG[12] = {71, 97, 109, 101, 32, 111, 118, 101, 114, 46, 10, 0};
+int STR_INVALID[26] = {73,  110, 118, 97,  108, 105, 100, 32,  105,
+                       110, 112, 117, 116, 46,  32,  84,  114, 121,
+                       32,  97,  103, 97,  105, 110, 46,  0};
 const int CHR_SPACE = 32;
 const int CHR_ENTER = 10;
 
@@ -148,7 +151,8 @@ void print_map() {
 
 // return bool
 // var == dx or var == dy
-int move_base(int inc, int var[], int other[], int x[], int y[]) {
+int move_base(int inc, int var[], int other[], int x[], int y[],
+              int is_dry_run) {
   int start, end;
   int moved = 0;
   if (inc == -1) {
@@ -174,6 +178,9 @@ int move_base(int inc, int var[], int other[], int x[], int y[]) {
         if (from_num == 0) {
           ptr_from = ptr_from + inc;
         } else {
+          if (is_dry_run) {
+            return 1;
+          }
           map[x[0]][y[0]] = from_num;
           var[0] = ptr_from;
           map[x[0]][y[0]] = 0;
@@ -182,6 +189,9 @@ int move_base(int inc, int var[], int other[], int x[], int y[]) {
         }
       } else {
         if (from_num == to_num) {
+          if (is_dry_run) {
+            return 1;
+          }
           // Merges two numbers.
           var[0] = ptr_to;
           map[x[0]][y[0]] = to_num + 1;
@@ -235,16 +245,24 @@ void move(int pos) {
   int x[1], y[1], inc = 1 - pos % 2 * 2;
   int moved;
   if (pos / 2 == 0) {
-    moved = move_base(inc, x, y, x, y);
+    moved = move_base(inc, x, y, x, y, 0);
   } else {
-    moved = move_base(inc, y, x, x, y);
+    moved = move_base(inc, y, x, x, y, 0);
   }
   if (!moved) {
+    put_string(STR_INVALID);
+    putch(CHR_ENTER);
     return;
   }
   step = step + 1;
   generate();
   print_map();
+}
+
+int try_move() {
+  int x[1], y[1];
+  return move_base(1, x, y, x, y, 1) || move_base(1, y, x, x, y, 1) ||
+         move_base(-1, x, y, x, y, 1) || move_base(-1, y, x, x, y, 1);
 }
 
 int main() {
@@ -274,8 +292,18 @@ int main() {
       // print the map
       putch(CHR_ENTER);
       print_map();
+    } else if (ch == 32 || ch == 10 || ch == 13) {
+      // ' ' or '\n' or '\r'
+      continue;
     } else {
+      put_string(STR_INVALID);
+      putch(CHR_ENTER);
       seed = (seed + ch) % 0x40000000;
+    }
+
+    if (!try_move()) {
+      put_string(STR_GG);
+      break;
     }
   }
   return 0;
