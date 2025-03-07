@@ -8,4 +8,4 @@ A spinning donut in the terminal, originally written in [Python](https://vgel.me
 ./sdf
 ```
 
-[sdf](./sdf.gif)
+![sdf.gif](./sdf.gif)
