@@ -11,3 +11,4 @@ Programs marked with an asterisk require your SysY compiler to support additiona
 * [lisp](lisp).
 * [2048](2048).
 * [diophantine](diophantine).
+* [sdf](sdf).
