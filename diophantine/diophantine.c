@@ -1521,7 +1521,7 @@ void Solve_Diophantine1() {
     tune_settings(a_v1, b_v1, c_v1);
     Solve_Diophantine1_II();
     if(!assertion) return;
-    recover_settings(a_v1, b_v1, c_v1);
+    recover_settings();
     return;
 }
 
@@ -1540,7 +1540,7 @@ void exhaust_solution_v1(int nsolutions_pointer) {
         int string_steptc[69] = {70, 117, 114, 116, 104, 101, 114, 32, 101, 120, 97, 109, 105, 110, 97, 116, 105, 111, 110, 32, 115, 104, 111, 119, 115, 32, 116, 104, 97, 116, 32, 37, 100, 32, 94, 32, 37, 115, 32, 43, 32, 37, 100, 32, 61, 32, 37, 100, 32, 94, 32, 37, 115, 32, 105, 115, 32, 105, 109, 112, 111, 115, 115, 105, 98, 108, 101, 46, 10};
         print_line_with_dsdds(string_steptc, a, x_name_v1, b, c, y_name_v1);
     }else{
-                // "Further examination shows that "
+        // "Further examination shows that "
         int string_vzcair[32] = {70, 117, 114, 116, 104, 101, 114, 32, 101, 120, 97, 109, 105, 110, 97, 116, 105, 111, 110, 32, 115, 104, 111, 119, 115, 32, 116, 104, 97, 116, 32, 0};
         print_word(string_vzcair);
         putch(left_parenthesis);
@@ -1644,7 +1644,7 @@ void print_solution_v1() {
                     // "So %s = %d (mod %d), "
                     int string_pmnlti[22] = {83, 111, 32, 37, 115, 32, 61, 32, 37, 100, 32, 40, 109, 111, 100, 32, 37, 100, 41, 44, 32, 10};
                     print_line_with_sdd(string_pmnlti, y_name_v1, yr, k);
-                                        // "which implies "
+                    // "which implies "
                     int string_shgdfd[15] = {119, 104, 105, 99, 104, 32, 105, 109, 112, 108, 105, 101, 115, 32, 0};
                     print_word(string_shgdfd);
                     print_word(y_name_v1);
@@ -1671,7 +1671,7 @@ void print_solution_v1() {
                     read_solution_v1();
                 }
                 read_solution_v1();
-                                // "Therefore, "
+                // "Therefore, "
                 int string_eanhzo[12] = {84, 104, 101, 114, 101, 102, 111, 114, 101, 44, 32, 0};
                 print_word(string_eanhzo);
                 putint(c);
@@ -1696,7 +1696,7 @@ void print_solution_v1() {
                 print_line_with_d(string_sdwmwo, P);
                 read_solution_v1();
                 read_solution_v1();
-                                // "So "
+                // "So "
                 int string_mlebym[4] = {83, 111, 32, 0};
                 print_word(string_mlebym);
                 putint(a);
@@ -1752,7 +1752,7 @@ void print_solution_v1() {
                     // "So %s = %d (mod %d), "
                     int string_alphgs[22] = {83, 111, 32, 37, 115, 32, 61, 32, 37, 100, 32, 40, 109, 111, 100, 32, 37, 100, 41, 44, 32, 10};
                     print_line_with_sdd(string_alphgs, x_name_v1, xr, k);
-                                        // "which implies "
+                    // "which implies "
                     int string_slryuq[15] = {119, 104, 105, 99, 104, 32, 105, 109, 112, 108, 105, 101, 115, 32, 0};
                     print_word(string_slryuq);
                     print_word(x_name_v1);
@@ -1779,7 +1779,7 @@ void print_solution_v1() {
                     read_solution_v1();
                 }
                 read_solution_v1();
-                                // "Therefore, "
+                // "Therefore, "
                 int string_hdrsyn[12] = {84, 104, 101, 114, 101, 102, 111, 114, 101, 44, 32, 0};
                 print_word(string_hdrsyn);
                 putint(a);
@@ -1804,7 +1804,7 @@ void print_solution_v1() {
                 print_line_with_d(string_mcblig, P);
                 read_solution_v1();
                 read_solution_v1();
-                                // "So "
+                // "So "
                 int string_czvoyz[4] = {83, 111, 32, 0};
                 print_word(string_czvoyz);
                 putint(c);
@@ -1852,13 +1852,13 @@ void print_Lean4_prop_v1 (int nsolutions_pointer, int bracket_multiple) {
     int nsolutions = solution_v1[nsolutions_pointer];
     // 有 -1 和 0 两种情况（-1用于向 print_solution_v1 函数传递信息，解的个数也为 0）
     if (nsolutions <= 0) {
-                // "False"
+        // "False"
         int string_izknzr[6] = {70, 97, 108, 115, 101, 0};
         print_word(string_izknzr);
         return;
     }
     if (bracket_multiple) putch(left_parenthesis);
-        // "List.Mem (x, y) ["
+    // "List.Mem (x, y) ["
     int string_okejtq[18] = {76, 105, 115, 116, 46, 77, 101, 109, 32, 40, 120, 44, 32, 121, 41, 32, 91, 0};
     print_word(string_okejtq);
     int offset = 1;
@@ -1875,7 +1875,7 @@ void print_Lean4_prop_v1 (int nsolutions_pointer, int bracket_multiple) {
         putch(right_parenthesis);
         offset = offset + 2;
     }
-        // "]"
+    // "]"
     int string_tfoyls[2] = {93, 0};
     print_word(string_tfoyls);
     if (bracket_multiple) putch(right_parenthesis);
@@ -2047,7 +2047,7 @@ void print_Lean4_int_array (int nsolutions_pointer) {
             // "theorem diophantine1_%d_%d_%d (x : Nat) (y : Nat) (h1 : x >= 1) (h2 : y >= 1) (h3 : %d ^ x + %d = %d ^ y) :"
             int string_ffwidx[108] = {116, 104, 101, 111, 114, 101, 109, 32, 100, 105, 111, 112, 104, 97, 110, 116, 105, 110, 101, 49, 95, 37, 100, 95, 37, 100, 95, 37, 100, 32, 40, 120, 32, 58, 32, 78, 97, 116, 41, 32, 40, 121, 32, 58, 32, 78, 97, 116, 41, 32, 40, 104, 49, 32, 58, 32, 120, 32, 62, 61, 32, 49, 41, 32, 40, 104, 50, 32, 58, 32, 121, 32, 62, 61, 32, 49, 41, 32, 40, 104, 51, 32, 58, 32, 37, 100, 32, 94, 32, 120, 32, 43, 32, 37, 100, 32, 61, 32, 37, 100, 32, 94, 32, 121, 41, 32, 58, 10};
             print_line_with_dddddd(string_ffwidx, a, b, c, a, b, c);
-                        // "  "
+            // "  "
             int string_awddge[3] = {32, 32, 0};
             print_word(string_awddge);
             print_Lean4_prop_v1(8, 0);
@@ -2096,7 +2096,7 @@ void print_Lean4_int_array (int nsolutions_pointer) {
             // "  have h7 : Or (x <= %d) (y <= %d) := by omega"
             int string_pfrfcv[47] = {32, 32, 104, 97, 118, 101, 32, 104, 55, 32, 58, 32, 79, 114, 32, 40, 120, 32, 60, 61, 32, 37, 100, 41, 32, 40, 121, 32, 60, 61, 32, 37, 100, 41, 32, 58, 61, 32, 98, 121, 32, 111, 109, 101, 103, 97, 10};
             print_line_with_dd(string_pfrfcv, dp_power-1, dp_power-1);
-                        // "  have h8 := Claim "
+            // "  have h8 := Claim "
             int string_jtouvz[20] = {32, 32, 104, 97, 118, 101, 32, 104, 56, 32, 58, 61, 32, 67, 108, 97, 105, 109, 32, 0};
             print_word(string_jtouvz);
             print_Lean4_prop_v1(8, 1);
@@ -2161,7 +2161,7 @@ void print_Lean4_int_array (int nsolutions_pointer) {
                 // "theorem diophantine1_%d_%d_%d (x : Nat) (y : Nat) (h1 : x >= 1) (h2 : y >= 1) (h3 : %d ^ x + %d = %d ^ y) :"
                 int string_vgpnki[108] = {116, 104, 101, 111, 114, 101, 109, 32, 100, 105, 111, 112, 104, 97, 110, 116, 105, 110, 101, 49, 95, 37, 100, 95, 37, 100, 95, 37, 100, 32, 40, 120, 32, 58, 32, 78, 97, 116, 41, 32, 40, 121, 32, 58, 32, 78, 97, 116, 41, 32, 40, 104, 49, 32, 58, 32, 120, 32, 62, 61, 32, 49, 41, 32, 40, 104, 50, 32, 58, 32, 121, 32, 62, 61, 32, 49, 41, 32, 40, 104, 51, 32, 58, 32, 37, 100, 32, 94, 32, 120, 32, 43, 32, 37, 100, 32, 61, 32, 37, 100, 32, 94, 32, 121, 41, 32, 58, 10};
                 print_line_with_dddddd(string_vgpnki, a, b, c, a, b, c);
-                                // "  "
+                // "  "
                 int string_iiencn[3] = {32, 32, 0};
                 print_word(string_iiencn);
                 print_Lean4_prop_v1(12, 0);
@@ -2214,7 +2214,7 @@ void print_Lean4_int_array (int nsolutions_pointer) {
                 // "  have h7 : x <= %d := by omega"
                 int string_vtrnql[32] = {32, 32, 104, 97, 118, 101, 32, 104, 55, 32, 58, 32, 120, 32, 60, 61, 32, 37, 100, 32, 58, 61, 32, 98, 121, 32, 111, 109, 101, 103, 97, 10};
                 print_line_with_d(string_vtrnql, dp_power-1);
-                                // "  have h8 := Claim "
+                // "  have h8 := Claim "
                 int string_jjefym[20] = {32, 32, 104, 97, 118, 101, 32, 104, 56, 32, 58, 61, 32, 67, 108, 97, 105, 109, 32, 0};
                 print_word(string_jjefym);
                 print_Lean4_prop_v1(12, 1);
@@ -2286,7 +2286,7 @@ void print_Lean4_int_array (int nsolutions_pointer) {
                 // "theorem diophantine1_%d_%d_%d (x : Nat) (y : Nat) (h1 : x >= 1) (h2 : y >= 1) (h3 : %d ^ x + %d = %d ^ y) :"
                 int string_vsdsla[108] = {116, 104, 101, 111, 114, 101, 109, 32, 100, 105, 111, 112, 104, 97, 110, 116, 105, 110, 101, 49, 95, 37, 100, 95, 37, 100, 95, 37, 100, 32, 40, 120, 32, 58, 32, 78, 97, 116, 41, 32, 40, 121, 32, 58, 32, 78, 97, 116, 41, 32, 40, 104, 49, 32, 58, 32, 120, 32, 62, 61, 32, 49, 41, 32, 40, 104, 50, 32, 58, 32, 121, 32, 62, 61, 32, 49, 41, 32, 40, 104, 51, 32, 58, 32, 37, 100, 32, 94, 32, 120, 32, 43, 32, 37, 100, 32, 61, 32, 37, 100, 32, 94, 32, 121, 41, 32, 58, 10};
                 print_line_with_dddddd(string_vsdsla, a, b, c, a, b, c);
-                                // "  "
+                // "  "
                 int string_cgvosn[3] = {32, 32, 0};
                 print_word(string_cgvosn);
                 print_Lean4_prop_v1(solution_v1_pointer, 0);
@@ -2334,15 +2334,15 @@ void print_Lean4_int_array (int nsolutions_pointer) {
                 int string_scpvoi[24] = {32, 32, 93, 32, 34, 111, 98, 115, 101, 114, 118, 101, 95, 109, 111, 100, 95, 99, 121, 99, 108, 101, 34, 10};
                 print_line(string_scpvoi);
 
-                                // "  have h10 := Claim (List.Mem ("
+                // "  have h10 := Claim (List.Mem ("
                 int string_crhplr[32] = {32, 32, 104, 97, 118, 101, 32, 104, 49, 48, 32, 58, 61, 32, 67, 108, 97, 105, 109, 32, 40, 76, 105, 115, 116, 46, 77, 101, 109, 32, 40, 0};
                 print_word(string_crhplr);
                 putint(c);
-                                // " ^ y % "
+                // " ^ y % "
                 int string_jbwjzh[8] = {32, 94, 32, 121, 32, 37, 32, 0};
                 print_word(string_jbwjzh);
                 putint(P);
-                                // ") ["
+                // ") ["
                 int string_zybqju[4] = {41, 32, 91, 0};
                 print_word(string_zybqju);
                 print_Lean4_int_array(pointer1);
@@ -2362,30 +2362,30 @@ void print_Lean4_int_array (int nsolutions_pointer) {
                 int string_kogglz[24] = {32, 32, 93, 32, 34, 117, 116, 105, 108, 105, 122, 101, 95, 109, 111, 100, 95, 99, 121, 99, 108, 101, 34, 10};
                 print_line(string_kogglz);
 
-                                // "  have h11 := Claim (List.Mem ("
+                // "  have h11 := Claim (List.Mem ("
                 int string_hxmdwl[32] = {32, 32, 104, 97, 118, 101, 32, 104, 49, 49, 32, 58, 61, 32, 67, 108, 97, 105, 109, 32, 40, 76, 105, 115, 116, 46, 77, 101, 109, 32, 40, 0};
                 print_word(string_hxmdwl);
                 putint(a);
-                                // " ^ x % "
+                // " ^ x % "
                 int string_xlcrvi[8] = {32, 94, 32, 120, 32, 37, 32, 0};
                 print_word(string_xlcrvi);
                 putint(P);
-                                // ") ["
+                // ") ["
                 int string_jboxws[4] = {41, 32, 91, 0};
                 print_word(string_jboxws);
                 print_Lean4_int_array(pointer2);
                 // "]) ["
                 int string_yqundf[5] = {93, 41, 32, 91, 10};
                 print_line(string_yqundf);          
-                                // "    {prop := List.Mem ("
+                // "    {prop := List.Mem ("
                 int string_duaoju[24] = {32, 32, 32, 32, 123, 112, 114, 111, 112, 32, 58, 61, 32, 76, 105, 115, 116, 46, 77, 101, 109, 32, 40, 0};
                 print_word(string_duaoju);
                 putint(c);
-                                // " ^ y % "
+                // " ^ y % "
                 int string_opcizs[8] = {32, 94, 32, 121, 32, 37, 32, 0};
                 print_word(string_opcizs);
                 putint(P); 
-                                // ") ["
+                // ") ["
                 int string_ntvbzq[4] = {41, 32, 91, 0};
                 print_word(string_ntvbzq);
                 print_Lean4_int_array(pointer1); 
@@ -2408,15 +2408,15 @@ void print_Lean4_int_array (int nsolutions_pointer) {
                 // "    {prop := x >= 1, proof := h1},"
                 int string_rspvov[35] = {32, 32, 32, 32, 123, 112, 114, 111, 112, 32, 58, 61, 32, 120, 32, 62, 61, 32, 49, 44, 32, 112, 114, 111, 111, 102, 32, 58, 61, 32, 104, 49, 125, 44, 10};
                 print_line(string_rspvov);
-                                // "    {prop := List.Mem ("
+                // "    {prop := List.Mem ("
                 int string_abqoqt[24] = {32, 32, 32, 32, 123, 112, 114, 111, 112, 32, 58, 61, 32, 76, 105, 115, 116, 46, 77, 101, 109, 32, 40, 0};
                 print_word(string_abqoqt);
                 putint(a);
-                                // " ^ x % "
+                // " ^ x % "
                 int string_kqmqhy[8] = {32, 94, 32, 120, 32, 37, 32, 0};
                 print_word(string_kqmqhy);
                 putint(P);
-                                // ") ["
+                // ") ["
                 int string_murhbb[4] = {41, 32, 91, 0};
                 print_word(string_murhbb);
                 print_Lean4_int_array(pointer2);
@@ -2433,7 +2433,7 @@ void print_Lean4_int_array (int nsolutions_pointer) {
                 // "  have h7 : x <= %d := by omega"
                 int string_jpgwei[32] = {32, 32, 104, 97, 118, 101, 32, 104, 55, 32, 58, 32, 120, 32, 60, 61, 32, 37, 100, 32, 58, 61, 32, 98, 121, 32, 111, 109, 101, 103, 97, 10};
                 print_line_with_d(string_jpgwei, dp_power-1);
-                                // "  have h8 := Claim "
+                // "  have h8 := Claim "
                 int string_pitmnm[20] = {32, 32, 104, 97, 118, 101, 32, 104, 56, 32, 58, 61, 32, 67, 108, 97, 105, 109, 32, 0};
                 print_word(string_pitmnm);
                 print_Lean4_prop_v1(solution_v1_pointer, 1);
@@ -2488,7 +2488,7 @@ void print_Lean4_int_array (int nsolutions_pointer) {
                 // "theorem diophantine1_%d_%d_%d (x : Nat) (y : Nat) (h1 : x >= 1) (h2 : y >= 1) (h3 : %d ^ x + %d = %d ^ y) :"
                 int string_peqqvd[108] = {116, 104, 101, 111, 114, 101, 109, 32, 100, 105, 111, 112, 104, 97, 110, 116, 105, 110, 101, 49, 95, 37, 100, 95, 37, 100, 95, 37, 100, 32, 40, 120, 32, 58, 32, 78, 97, 116, 41, 32, 40, 121, 32, 58, 32, 78, 97, 116, 41, 32, 40, 104, 49, 32, 58, 32, 120, 32, 62, 61, 32, 49, 41, 32, 40, 104, 50, 32, 58, 32, 121, 32, 62, 61, 32, 49, 41, 32, 40, 104, 51, 32, 58, 32, 37, 100, 32, 94, 32, 120, 32, 43, 32, 37, 100, 32, 61, 32, 37, 100, 32, 94, 32, 121, 41, 32, 58, 10};
                 print_line_with_dddddd(string_peqqvd, a, b, c, a, b, c);
-                                // "  "
+                // "  "
                 int string_raycai[3] = {32, 32, 0};
                 print_word(string_raycai);
                 print_Lean4_prop_v1(12, 0);
@@ -2541,7 +2541,7 @@ void print_Lean4_int_array (int nsolutions_pointer) {
                 // "  have h7 : y <= %d := by omega"
                 int string_kmyzyw[32] = {32, 32, 104, 97, 118, 101, 32, 104, 55, 32, 58, 32, 121, 32, 60, 61, 32, 37, 100, 32, 58, 61, 32, 98, 121, 32, 111, 109, 101, 103, 97, 10};
                 print_line_with_d(string_kmyzyw, dp_power-1);
-                                // "  have h8 := Claim "
+                // "  have h8 := Claim "
                 int string_aoczhz[20] = {32, 32, 104, 97, 118, 101, 32, 104, 56, 32, 58, 61, 32, 67, 108, 97, 105, 109, 32, 0};
                 print_word(string_aoczhz);
                                 print_Lean4_prop_v1(12, 1);
@@ -2613,7 +2613,7 @@ void print_Lean4_int_array (int nsolutions_pointer) {
                 // "theorem diophantine1_%d_%d_%d (x : Nat) (y : Nat) (h1 : x >= 1) (h2 : y >= 1) (h3 : %d ^ x + %d = %d ^ y) :"
                 int string_ndfpcn[108] = {116, 104, 101, 111, 114, 101, 109, 32, 100, 105, 111, 112, 104, 97, 110, 116, 105, 110, 101, 49, 95, 37, 100, 95, 37, 100, 95, 37, 100, 32, 40, 120, 32, 58, 32, 78, 97, 116, 41, 32, 40, 121, 32, 58, 32, 78, 97, 116, 41, 32, 40, 104, 49, 32, 58, 32, 120, 32, 62, 61, 32, 49, 41, 32, 40, 104, 50, 32, 58, 32, 121, 32, 62, 61, 32, 49, 41, 32, 40, 104, 51, 32, 58, 32, 37, 100, 32, 94, 32, 120, 32, 43, 32, 37, 100, 32, 61, 32, 37, 100, 32, 94, 32, 121, 41, 32, 58, 10};
                 print_line_with_dddddd(string_ndfpcn, a, b, c, a, b, c);
-                                // "  "
+                // "  "
                 int string_vlnlbm[3] = {32, 32, 0};
                 print_word(string_vlnlbm);
                 print_Lean4_prop_v1(solution_v1_pointer, 0);
@@ -2661,15 +2661,15 @@ void print_Lean4_int_array (int nsolutions_pointer) {
                 int string_bywxql[24] = {32, 32, 93, 32, 34, 111, 98, 115, 101, 114, 118, 101, 95, 109, 111, 100, 95, 99, 121, 99, 108, 101, 34, 10};
                 print_line(string_bywxql);
 
-                                // "  have h10 := Claim (List.Mem ("
+                // "  have h10 := Claim (List.Mem ("
                 int string_mzyrui[32] = {32, 32, 104, 97, 118, 101, 32, 104, 49, 48, 32, 58, 61, 32, 67, 108, 97, 105, 109, 32, 40, 76, 105, 115, 116, 46, 77, 101, 109, 32, 40, 0};
                 print_word(string_mzyrui);
                 putint(a);
-                                // " ^ x % "
+                // " ^ x % "
                 int string_kdjtmw[8] = {32, 94, 32, 120, 32, 37, 32, 0};
                 print_word(string_kdjtmw);
                 putint(P);
-                                // ") ["
+                // ") ["
                 int string_hsuxoz[4] = {41, 32, 91, 0};
                 print_word(string_hsuxoz);
                 print_Lean4_int_array(pointer1);
@@ -2689,30 +2689,30 @@ void print_Lean4_int_array (int nsolutions_pointer) {
                 int string_zdzmgp[24] = {32, 32, 93, 32, 34, 117, 116, 105, 108, 105, 122, 101, 95, 109, 111, 100, 95, 99, 121, 99, 108, 101, 34, 10};
                 print_line(string_zdzmgp);
 
-                                // "  have h11 := Claim (List.Mem ("
+                // "  have h11 := Claim (List.Mem ("
                 int string_fxoujn[32] = {32, 32, 104, 97, 118, 101, 32, 104, 49, 49, 32, 58, 61, 32, 67, 108, 97, 105, 109, 32, 40, 76, 105, 115, 116, 46, 77, 101, 109, 32, 40, 0};
                 print_word(string_fxoujn);
                 putint(c);
-                                // " ^ y % "
+                // " ^ y % "
                 int string_jgnmcz[8] = {32, 94, 32, 121, 32, 37, 32, 0};
                 print_word(string_jgnmcz);
                 putint(P);
-                                // ") ["
+                // ") ["
                 int string_mvxjko[4] = {41, 32, 91, 0};
                 print_word(string_mvxjko);
                 print_Lean4_int_array(pointer2);
                 // "]) ["
                 int string_fdgypk[5] = {93, 41, 32, 91, 10};
                 print_line(string_fdgypk);          
-                                // "    {prop := List.Mem ("
+                // "    {prop := List.Mem ("
                 int string_dijvmr[24] = {32, 32, 32, 32, 123, 112, 114, 111, 112, 32, 58, 61, 32, 76, 105, 115, 116, 46, 77, 101, 109, 32, 40, 0};
                 print_word(string_dijvmr);
                 putint(a);
-                                // " ^ x % "
+                // " ^ x % "
                 int string_rgvzqm[8] = {32, 94, 32, 120, 32, 37, 32, 0};
                 print_word(string_rgvzqm);
                 putint(P); 
-                                // ") ["
+                // ") ["
                 int string_euesmx[4] = {41, 32, 91, 0};
                 print_word(string_euesmx);
                 print_Lean4_int_array(pointer1); 
@@ -2735,15 +2735,15 @@ void print_Lean4_int_array (int nsolutions_pointer) {
                 // "    {prop := y >= 1, proof := h2},"
                 int string_xccden[35] = {32, 32, 32, 32, 123, 112, 114, 111, 112, 32, 58, 61, 32, 121, 32, 62, 61, 32, 49, 44, 32, 112, 114, 111, 111, 102, 32, 58, 61, 32, 104, 50, 125, 44, 10};
                 print_line(string_xccden);
-                                // "    {prop := List.Mem ("
+                // "    {prop := List.Mem ("
                 int string_vgkjko[24] = {32, 32, 32, 32, 123, 112, 114, 111, 112, 32, 58, 61, 32, 76, 105, 115, 116, 46, 77, 101, 109, 32, 40, 0};
                 print_word(string_vgkjko);
                 putint(c);
-                                // " ^ y % "
+                // " ^ y % "
                 int string_zfrwqw[8] = {32, 94, 32, 121, 32, 37, 32, 0};
                 print_word(string_zfrwqw);
                 putint(P);
-                                // ") ["
+                // ") ["
                 int string_tcjoba[4] = {41, 32, 91, 0};
                 print_word(string_tcjoba);
                 print_Lean4_int_array(pointer2);
@@ -2760,7 +2760,7 @@ void print_Lean4_int_array (int nsolutions_pointer) {
                 // "  have h7 : y <= %d := by omega"
                 int string_ayiypt[32] = {32, 32, 104, 97, 118, 101, 32, 104, 55, 32, 58, 32, 121, 32, 60, 61, 32, 37, 100, 32, 58, 61, 32, 98, 121, 32, 111, 109, 101, 103, 97, 10};
                 print_line_with_d(string_ayiypt, dp_power-1);
-                                // "  have h8 := Claim "
+                // "  have h8 := Claim "
                 int string_skcegv[20] = {32, 32, 104, 97, 118, 101, 32, 104, 56, 32, 58, 61, 32, 67, 108, 97, 105, 109, 32, 0};
                 print_word(string_skcegv);
                 print_Lean4_prop_v1(solution_v1_pointer, 1);
