@@ -8,7 +8,7 @@ Your SysY compiler must support the following "function declaration" syntax:
 
 ```ebnf
 FuncDef ::= FuncType IDENT "(" [FuncFParams] ")" Block;
-FuncDecl ::= FuncType IDENT "(" [FuncFParams] ")";
+FuncDecl ::= FuncType IDENT "(" [FuncFParams] ")" ";";
 ```
 
 To get an executable, you should link the SysY compiler-generated file with `libsysy` and `fp-math.c`.
