@@ -1,0 +1,26 @@
+% Pachelbel-inspired three-voice canon for mml2midi.c.
+% Tracks are separated by semicolons.
+
+T70 @42 P64 V58 O3 L2
+C G A E F C F G
+C G A E F C F G
+C G A E F C F G
+C G A E F C F G
+C G A E F C F G ;
+
+@40 P24 V90 O4 L2
+E D C <B A G A B
+> L4 E G D <B >C E <B G A >C <G E A >C <B >D
+L8 E D C E D C <B >D C <B A >C <B A G B A >C <F A G >E C G A C <F A B >D <G B ;
+
+@40 P64 V82 O4 L4
+R1 R1 R1 R1
+L2 E D C <B A G A B
+> L4 E G D <B >C E <B G A >C <G E A >C <B >D
+L8 E D C E D C <B >D C <B A >C <B A G B A >C <F A G >E C G A C <F A B >D <G B ;
+
+@40 P104 V90 O4 L4
+R1 R1 R1 R1 R1 R1 R1 R1
+L2 E D C <B A G A B
+> L4 E G D <B >C E <B G A >C <G E A >C <B >D
+L8 E D C E D C <B >D C <B A >C <B A G B A >C <F A G >E C G A C <F A B >D <G B

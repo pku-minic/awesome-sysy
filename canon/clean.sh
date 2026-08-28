@@ -7,8 +7,3 @@ BUILD_DIR="${DEMO_DIR}/build"
 if [[ -d "${BUILD_DIR}" ]]; then
   rm -rf -- "${BUILD_DIR}"
 fi
-
-rm -f -- \
-  "${DEMO_DIR}/canon.wav" \
-  "${DEMO_DIR}/canon-demo.mp4" \
-  "${DEMO_DIR}/canon-demo.png"
